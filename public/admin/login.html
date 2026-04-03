@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login - Shoppimini</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+    <div class="checkout-box shadow" style="width: 400px;">
+        <h3 class="text-center mb-4">Quản Trị Viên</h3>
+        <form id="login-form">
+            <div class="mb-3">
+                <label class="form-label">Tài khoản</label>
+                <input type="text" id="username" class="form-control" required placeholder="admin">
+            </div>
+            <div class="mb-4">
+                <label class="form-label">Mật khẩu</label>
+                <input type="password" id="password" class="form-control" required placeholder="admin123">
+            </div>
+            <button type="submit" class="btn btn-primary-custom w-100">Đăng Nhập</button>
+            <div class="text-center mt-3">
+                <a href="/" class="text-muted">← Về trang chủ</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            try {
+                const res = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    window.location.href = '/admin/products.html';
+                } else {
+                    alert('Đăng nhập thất bại: ' + data.error);
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        });
+    </script>
+</body>
+</html>
