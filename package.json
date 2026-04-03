@@ -1,0 +1,20 @@
+{
+  "name": "shopimini",
+  "version": "1.0.0",
+  "description": "ShopIMini e-commerce MVP (Express, SQLite, Bootstrap)",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "db:init": "node db/init.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "better-sqlite3": "^11.9.1",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2"
+  }
+}
