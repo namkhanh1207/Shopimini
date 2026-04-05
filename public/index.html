@@ -1,71 +1,73 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shoppimini - Lộng Lẫy & Tinh Tế</title>
+    <title>ShopiMini - Chợ Vật Phẩm ẢO</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+<nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="/">✨ Shoppimini</a>
+        <a class="navbar-brand fs-4" href="/">🎮 ShopiMini</a>
         <div class="d-flex position-relative">
-            <a href="/cart.html" class="btn btn-light position-relative" style="border-radius: 12px;">
+            <a href="/cart.html" class="btn btn-primary-custom position-relative me-2">
                 🛒 Giỏ Hàng
-                <span id="cart-badge" class="cart-badge translate-middle">0</span>
+                <span id="cart-badge" class="cart-badge">0</span>
             </a>
-            <a href="/admin/login.html" class="btn btn-outline-secondary ms-2" style="border-radius: 12px;">Admin</a>
+            <a href="/admin/login.html" class="btn btn-outline-secondary">Admin</a>
         </div>
     </div>
 </nav>
 
 <div class="container">
     <div class="hero-section">
-        <h1>Bộ Sưu Tập Mới Nhất</h1>
-        <p class="lead">Khám phá các phong cách hiện đại với thiết kế dẫn đầu xu hướng.</p>
+        <h1 class="fw-bold" style="color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan);">ShopiMini</h1>
+        <p class="lead">Siêu thị vật phẩm ảo đa vũ trụ. Sức mạnh nằm trong tay bạn!</p>
     </div>
 
+    <!-- Bộ lọc Game -->
+    <div class="text-center mb-5">
+        <button class="btn filter-btn active" data-game="">Tất cả</button>
+        <button class="btn filter-btn" data-game="lienquan">Liên Quân</button>
+        <button class="btn filter-btn" data-game="lienminh">Liên Minh</button>
+        <button class="btn filter-btn" data-game="gunny">Gunny 360</button>
+        <button class="btn filter-btn" data-game="soulknight">Soul Knight</button>
+        <button class="btn filter-btn" data-game="pubg">PUBG</button>
+        <button class="btn filter-btn" data-game="dragonmania">Dragon Mania</button>
+    </div>
+
+    <!-- Product Grid -->
     <div class="row" id="product-list">
         <!-- Products will be loaded here via JS -->
     </div>
 </div>
 
+<!-- Modal Info Game -->
+<div class="modal fade" id="gameInfoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="gameModalTitle" style="color: var(--neon-pink);">Tên Game</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="gameModalDesc" class="mb-4">Mô tả game...</p>
+        <div class="ratio ratio-16x9">
+            <iframe id="gameModalVideo" src="" title="YouTube video" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary-custom" data-bs-dismiss="modal">Khám phá vật phẩm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/js/main.js"></script>
-<script>
-    async function fetchProducts() {
-        try {
-            const res = await fetch('/api/products');
-            const data = await res.json();
-            const productList = document.getElementById('product-list');
-            productList.innerHTML = '';
-
-            data.products.forEach(p => {
-                const col = document.createElement('div');
-                col.className = 'col-lg-4 col-md-6';
-                col.innerHTML = `
-                    <div class="card product-card">
-                        <img src="${p.image}" alt="${p.name}">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">${p.name}</h5>
-                            <p class="card-text text-muted small">${p.description}</p>
-                            <div class="product-price">${formatCurrency(p.price)}</div>
-                            <button class="btn btn-primary-custom" onclick="addToCart(${p.id})">Thêm Vào Giỏ</button>
-                        </div>
-                    </div>
-                `;
-                productList.appendChild(col);
-            });
-        } catch(err) {
-            console.error(err);
-        }
-    }
-    
-    document.addEventListener('DOMContentLoaded', fetchProducts);
-</script>
 </body>
 </html>
