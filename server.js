@@ -3,12 +3,17 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const path = require('path');
+const cors = require('cors');
 const db = require('./database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -22,9 +27,37 @@ app.use(session({
 // ===== CUSTOMER API ROUTES =====
 
 app.get('/api/products', (req, res) => {
-  db.all('SELECT * FROM products', [], (err, rows) => {
+  const { game, rarity, attribute } = req.query;
+  let sql = 'SELECT * FROM products WHERE 1=1';
+  let params = [];
+  if (game) {
+    sql += ' AND game = ?';
+    params.push(game);
+  }
+  if (rarity && rarity !== 'All') {
+    sql += ' AND rarity = ?';
+    params.push(rarity);
+  }
+  if (attribute && attribute !== 'All') {
+    sql += ' AND attributes LIKE ?';
+    params.push(`%${attribute}%`);
+  }
+  db.all(sql, params, (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
-    res.json({ products: rows });
+    // Parse attributes to array for frontend
+    const products = rows.map(r => ({
+       ...r,
+       attributes: r.attributes ? JSON.parse(r.attributes) : []
+    }));
+    res.json({ products });
+  });
+});
+
+app.get('/api/game-info/:gameKey', (req, res) => {
+  db.get('SELECT * FROM game_info WHERE game_key = ?', [req.params.gameKey], (err, row) => {
+    if (err) return res.status(500).json({ error: err.message });
+    if (!row) return res.status(404).json({ error: "Không tìm thấy thông tin game" });
+    res.json(row);
   });
 });
 
@@ -119,9 +152,10 @@ app.get('/api/admin/check', (req, res) => {
 });
 
 app.post('/api/admin/products', isAdmin, (req, res) => {
-  const { name, price, image, description } = req.body;
-  db.run('INSERT INTO products (name, price, image, description) VALUES (?, ?, ?, ?)',
-    [name, price, image, description], function(err) {
+  const { name, price, image, description, game, rarity, attributes, unlockDate, requiredLevel } = req.body;
+  const attrStr = attributes ? JSON.stringify(attributes) : '[]';
+  db.run('INSERT INTO products (name, price, image, description, game, rarity, attributes, unlockDate, requiredLevel) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+    [name, price, image, description, game, rarity, attrStr, unlockDate || null, requiredLevel || null], function(err) {
       if (err) return res.status(500).json({ error: err.message });
       res.json({ success: true, id: this.lastID });
   });
@@ -135,9 +169,10 @@ app.delete('/api/admin/products/:id', isAdmin, (req, res) => {
 });
 
 app.put('/api/admin/products/:id', isAdmin, (req, res) => {
-  const { name, price, image, description } = req.body;
-  db.run('UPDATE products SET name=?, price=?, image=?, description=? WHERE id=?',
-    [name, price, image, description, req.params.id], function(err) {
+  const { name, price, image, description, game, rarity, attributes, unlockDate, requiredLevel } = req.body;
+  const attrStr = attributes ? JSON.stringify(attributes) : '[]';
+  db.run('UPDATE products SET name=?, price=?, image=?, description=?, game=?, rarity=?, attributes=?, unlockDate=?, requiredLevel=? WHERE id=?',
+    [name, price, image, description, game, rarity, attrStr, unlockDate || null, requiredLevel || null, req.params.id], function(err) {
       if (err) return res.status(500).json({ error: err.message });
       res.json({ success: true });
   });
