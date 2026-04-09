@@ -1,0 +1,152 @@
+[
+    {
+        "name": "M416",
+        "price": 450000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/d3d3d3?text=M416",
+        "description": "Súng trường tấn công đa dụng phổ biến nhất. Độ giật thấp, tốc độ bắn nhanh, dễ kiểm soát khi gắn đầy đủ phụ kiện. Phù hợp với mọi tình huống giao tranh.",
+        "game": "PUBG",
+        "rarity": "Epic",
+        "attributes": "Súng trường (AR), 5.56mm, Cận - Trung",
+        "requiredLevel": 15
+    },
+    {
+        "name": "AKM",
+        "price": 400000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/d3d3d3?text=AKM",
+        "description": "Sát thương đơn viên cao nhất nhì dòng AR. Độ giật cực lớn, yêu cầu kỹ năng ghìm tâm tốt. Hủy diệt ở cự ly gần và trung.",
+        "game": "PUBG",
+        "rarity": "Epic",
+        "attributes": "Súng trường (AR), 7.62mm, Sát thương cao",
+        "requiredLevel": 18
+    },
+    {
+        "name": "Beryl M762",
+        "price": 480000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/d3d3d3?text=Beryl+M762",
+        "description": "Cỗ máy nghiền nát giáp. Tốc độ bắn nhanh hơn AKM, sát thương mạnh mẽ nhưng độ giật dọc rất cao. Cực kỳ nguy hiểm trong tay cao thủ.",
+        "game": "PUBG",
+        "rarity": "Epic",
+        "attributes": "Súng trường (AR), 7.62mm, Khó dùng",
+        "requiredLevel": 20
+    },
+    {
+        "name": "Kar98k",
+        "price": 500000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/d3d3d3?text=Kar98k",
+        "description": "Huyền thoại súng bắn tỉa nạp đạn từng viên. Một phát bắn chính xác vào đầu (Headshot) sẽ hạ gục ngay lập tức kẻ địch đội Mũ 2.",
+        "game": "PUBG",
+        "rarity": "Legendary",
+        "attributes": "Súng tỉa (SR), 7.62mm, Bắn xa",
+        "requiredLevel": 22
+    },
+    {
+        "name": "AWM",
+        "price": 950000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ffd700?text=AWM",
+        "description": "Súng bắn tỉa mạnh nhất game, chỉ rơi ra từ 'Hòm Thính'. Xuyên thủng Mũ 3 với một phát đạn duy nhất. Sử dụng đạn Magnum .300 đặc biệt.",
+        "game": "PUBG",
+        "rarity": "Mythic",
+        "attributes": "Súng tỉa (SR), .300 Magnum, Hòm Thính",
+        "requiredLevel": 35
+    },
+    {
+        "name": "Groza",
+        "price": 850000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ffd700?text=Groza",
+        "description": "Quái vật cận chiến từ Hòm Thính. Sở hữu sát thương của đạn 7.62mm nhưng có tốc độ bắn kinh hoàng như súng SMG. Bất bại ở cự ly gần.",
+        "game": "PUBG",
+        "rarity": "Legendary",
+        "attributes": "Súng trường (AR), 7.62mm, Hòm Thính",
+        "requiredLevel": 30
+    },
+    {
+        "name": "AUG A3",
+        "price": 750000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ffd700?text=AUG",
+        "description": "Súng trường 5.56mm với độ ổn định tuyệt đối, tốc độ đạn bay nhanh, cực kỳ dễ kiểm soát. Súng độc quyền từ Hòm Thính.",
+        "game": "PUBG",
+        "rarity": "Legendary",
+        "attributes": "Súng trường (AR), 5.56mm, Hòm Thính",
+        "requiredLevel": 28
+    },
+    {
+        "name": "Vector",
+        "price": 350000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/d3d3d3?text=Vector",
+        "description": "Súng tiểu liên với tốc độ nhả đạn nhanh nhất. Băng đạn mặc định ít nhưng DPS (sát thương/giây) cực cao. Rất nguy hiểm trong giao tranh trong nhà.",
+        "game": "PUBG",
+        "rarity": "Rare",
+        "attributes": "Tiểu liên (SMG), 9mm, Cận chiến",
+        "requiredLevel": 12
+    },
+    {
+        "name": "Mk14 EBR",
+        "price": 880000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ffd700?text=Mk14",
+        "description": "Khẩu súng trường bắn tỉa (DMR) đa năng từ Hòm Thính. Có chế độ bắn tự động cực mạnh ở cự ly gần và sát thương khủng khi tap ở cự ly xa.",
+        "game": "PUBG",
+        "rarity": "Legendary",
+        "attributes": "Súng DMR, 7.62mm, Hòm Thính",
+        "requiredLevel": 32
+    },
+    {
+        "name": "Mini14",
+        "price": 420000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/d3d3d3?text=Mini14",
+        "description": "Súng trường bắn tỉa bán tự động (DMR). Tốc độ đạn bay rất nhanh, độ rơi đạn ít, băng đạn lớn. Dễ dàng bắn liên tiếp vào các mục tiêu đang di chuyển.",
+        "game": "PUBG",
+        "rarity": "Epic",
+        "attributes": "Súng DMR, 5.56mm, Bắn xa",
+        "requiredLevel": 18
+    },
+    {
+        "name": "Pan (Chảo Dính Chảo)",
+        "price": 990000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/d3d3d3?text=Pan",
+        "description": "Biểu tượng của PUBG. Vũ khí cận chiến duy nhất có khả năng chống đạn 100%, bảo vệ vòng ba của bạn khỏi mọi loại súng, kể cả AWM.",
+        "game": "PUBG",
+        "rarity": "Mythic",
+        "attributes": "Cận chiến, Chống đạn, Biểu tượng",
+        "requiredLevel": 5
+    },
+    {
+        "name": "S686",
+        "price": 250000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/d3d3d3?text=S686",
+        "description": "Súng shotgun nạp 2 viên. Bắn liên tiếp 2 phát cực nhanh với uy lực kinh hoàng, đủ sức đưa mọi kẻ địch về sảnh chỉ trong chớp mắt ở cự ly gần.",
+        "game": "PUBG",
+        "rarity": "Rare",
+        "attributes": "Shotgun, 12 Gauge, Sát thương tức thì",
+        "requiredLevel": 10
+    },
+    {
+        "name": "M249",
+        "price": 600000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/d3d3d3?text=M249",
+        "description": "Súng máy hạng nhẹ với băng đạn lên tới 150 viên (khi lắp băng đạn mở rộng). Khả năng đè bẹp đối thủ và phá hủy phương tiện tốt nhất game.",
+        "game": "PUBG",
+        "rarity": "Epic",
+        "attributes": "Súng máy (LMG), 5.56mm, Đè bẹp",
+        "requiredLevel": 25
+    },
+    {
+        "name": "SCAR-L",
+        "price": 420000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/d3d3d3?text=SCAR-L",
+        "description": "Người anh em của M416. Độ giật dọc thấp, bắn khá êm, tuy nhiên tốc độ bắn có phần lép vế. Lựa chọn tuyệt vời cho người mới chơi.",
+        "game": "PUBG",
+        "rarity": "Epic",
+        "attributes": "Súng trường (AR), 5.56mm, Ổn định",
+        "requiredLevel": 15
+    },
+    {
+        "name": "Flare Gun",
+        "price": 1000000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff0000?text=Flare+Gun",
+        "description": "Súng thính màu đỏ siêu hiếm. Bắn lên trời trong vòng bo an toàn để gọi một chiếc máy bay thả Hòm Thính đặc biệt chứa vũ khí cấp 3 hoặc xe thiết giáp.",
+        "game": "PUBG",
+        "rarity": "Mythic",
+        "attributes": "Đặc biệt, Triệu hồi, Sinh tồn",
+        "requiredLevel": 40
+    }
+]

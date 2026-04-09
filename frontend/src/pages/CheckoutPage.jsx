@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import api from '../api';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export default function CheckoutPage() {
+  const { reload } = useAuth();
   const [form, setForm] = useState({ name: '', address: '' });
   const navigate = useNavigate();
 
@@ -15,6 +17,7 @@ export default function CheckoutPage() {
          customer_address: form.address 
       });
       if(res.data.success) {
+         await reload();
          alert('Epic Purchase Successful! Order #' + res.data.orderId);
          navigate('/');
       }

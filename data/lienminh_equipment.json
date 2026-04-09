@@ -1,0 +1,172 @@
+[
+  {
+    "name": "Vô Cực Kiếm",
+    "price": 340000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3031.png",
+    "description": "+65 Sức mạnh Công kích, +20% Tỉ lệ Chí mạng, +50% Sát thương Chí mạng.",
+    "game": "Liên Minh",
+    "rarity": "Legendary",
+    "attributes": "Vũ khí, Sát thương, Chí mạng",
+    "requiredLevel": 10
+  },
+  {
+    "name": "Đồng Hồ Cát Zhonya",
+    "price": 320000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3157.png",
+    "description": "+120 Sức mạnh Phép thuật, +50 Giáp. Kích hoạt - Ngưng Đọng: Trở nên bất tử và không thể bị chỉ định trong 2.5 giây, nhưng không thể di chuyển hay hành động.",
+    "game": "Liên Minh",
+    "rarity": "Legendary",
+    "attributes": "Phép thuật, Phòng thủ, Kích hoạt",
+    "requiredLevel": 15
+  },
+  {
+    "name": "Mũ Phù Thủy Rabadon",
+    "price": 360000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3089.png",
+    "description": "+140 Sức mạnh Phép thuật. Nội tại - Đồ Tể Phép Thuật: Tăng tổng Sức mạnh Phép thuật thêm 35%.",
+    "game": "Liên Minh",
+    "rarity": "Legendary",
+    "attributes": "Phép thuật, Sức mạnh",
+    "requiredLevel": 20
+  },
+  {
+    "name": "Tam Hợp Kiếm",
+    "price": 333300,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3078.png",
+    "description": "+45 Sức mạnh Công kích, +33% Tốc đánh, +300 Máu, +20 Điểm Hồi Kỹ Năng. Nội tại - Kiếm Phép: Sau khi dùng một kỹ năng, đòn đánh tiếp theo gây thêm sát thương vật lý.",
+    "game": "Liên Minh",
+    "rarity": "Mythic",
+    "attributes": "Vũ khí, Đa dụng, Tốc đánh",
+    "requiredLevel": 30
+  },
+  {
+    "name": "Giáp Gai",
+    "price": 270000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3075.png",
+    "description": "+350 Máu, +70 Giáp. Nội tại - Gai Góc: Khi bị trúng đòn đánh thường, phản lại sát thương phép và áp dụng Vết Thương Sâu lên kẻ tấn công.",
+    "game": "Liên Minh",
+    "rarity": "Epic",
+    "attributes": "Phòng thủ, Giáp, Phản sát thương",
+    "requiredLevel": 12
+  },
+  {
+    "name": "Gươm Suy Vong",
+    "price": 320000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3153.png",
+    "description": "+40 Sức mạnh Công kích, +25% Tốc đánh, +8% Hút máu. Nội tại: Đòn đánh gây sát thương vật lý theo % máu hiện tại của mục tiêu.",
+    "game": "Liên Minh",
+    "rarity": "Legendary",
+    "attributes": "Vũ khí, Tốc đánh, Hút máu",
+    "requiredLevel": 15
+  },
+  {
+    "name": "Huyết Kiếm",
+    "price": 340000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3072.png",
+    "description": "+80 Sức mạnh Công kích, +18% Hút máu. Nội tại: Chuyển hóa lượng máu hồi phục vượt mức thành một lớp lá chắn ảo.",
+    "game": "Liên Minh",
+    "rarity": "Legendary",
+    "attributes": "Vũ khí, Hút máu, Lá chắn",
+    "requiredLevel": 18
+  },
+  {
+    "name": "Rìu Đen",
+    "price": 300000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3071.png",
+    "description": "+55 Sức mạnh Công kích, +400 Máu, +20 Điểm Hồi Kỹ Năng. Nội tại: Gây sát thương vật lý lên tướng địch sẽ làm giảm Giáp của chúng, cộng dồn tối đa 6 lần.",
+    "game": "Liên Minh",
+    "rarity": "Epic",
+    "attributes": "Vũ khí, Xuyên giáp, Máu",
+    "requiredLevel": 15
+  },
+  {
+    "name": "Giáp Tâm Linh",
+    "price": 290000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3065.png",
+    "description": "+450 Máu, +60 Kháng Phép, +100% Hồi Phục Cơ Bản, +10 Điểm Hồi Kỹ Năng. Nội tại: Tăng mọi nguồn Hồi máu và Lá chắn nhận được thêm 25%.",
+    "game": "Liên Minh",
+    "rarity": "Epic",
+    "attributes": "Phòng thủ, Kháng phép, Hồi phục",
+    "requiredLevel": 14
+  },
+  {
+    "name": "Trượng Hư Vô",
+    "price": 300000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3135.png",
+    "description": "+90 Sức mạnh Phép thuật, +40% Xuyên Kháng Phép.",
+    "game": "Liên Minh",
+    "rarity": "Legendary",
+    "attributes": "Phép thuật, Xuyên phép",
+    "requiredLevel": 20
+  },
+  {
+    "name": "Nỏ Thần Dominik",
+    "price": 300000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3036.png",
+    "description": "+40 Sức mạnh Công kích, +20% Tỉ lệ Chí mạng, +40% Xuyên giáp. Nội tại - Diệt Khổng Lồ: Gây thêm sát thương vật lý lên tướng có lượng máu tối đa lớn hơn bạn.",
+    "game": "Liên Minh",
+    "rarity": "Legendary",
+    "attributes": "Vũ khí, Xuyên giáp, Chí mạng",
+    "requiredLevel": 20
+  },
+  {
+    "name": "Giáp Thiên Thần",
+    "price": 320000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3026.png",
+    "description": "+55 Sức mạnh Công kích, +45 Giáp. Nội tại - Cứu Rỗi: Khi nhận sát thương kết liễu, hồi sinh lại sau 4 giây ngưng đọng với 50% Máu và 30% Năng lượng.",
+    "game": "Liên Minh",
+    "rarity": "Mythic",
+    "attributes": "Phòng thủ, Hồi sinh, Vật lý",
+    "requiredLevel": 30
+  },
+  {
+    "name": "Kiếm Ma Youmuu",
+    "price": 310000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3142.png",
+    "description": "+60 Sức mạnh Công kích, +18 Sát lực, +15 Điểm Hồi Kỹ Năng. Kích hoạt - Bước Chân Bóng Ma: Nhận thêm 20% Tốc độ Di chuyển và đi xuyên vật thể trong 6 giây.",
+    "game": "Liên Minh",
+    "rarity": "Legendary",
+    "attributes": "Vũ khí, Sát lực, Tốc độ chạy",
+    "requiredLevel": 18
+  },
+  {
+    "name": "Quỷ Thư Morello",
+    "price": 300000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3165.png",
+    "description": "+90 Sức mạnh Phép thuật, +200 Máu, +10 Xuyên Kháng Phép. Nội tại: Sát thương phép gây Vết Thương Sâu lên tướng địch, giảm hồi máu của chúng.",
+    "game": "Liên Minh",
+    "rarity": "Epic",
+    "attributes": "Phép thuật, Giảm hồi máu",
+    "requiredLevel": 16
+  },
+  {
+    "name": "Dây Chuyền Chữ Thập",
+    "price": 310000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3102.png",
+    "description": "+120 Sức mạnh Phép thuật, +50 Kháng Phép, +10 Điểm Hồi Kỹ Năng. Nội tại - Phá Vỡ: Cung cấp một Khiên Phép chặn kỹ năng tiếp theo của kẻ địch.",
+    "game": "Liên Minh",
+    "rarity": "Epic",
+    "attributes": "Phép thuật, Kháng phép, Khiên phép",
+    "requiredLevel": 17
+  },
+  {
+    "name": "Trượng Pha Lê Rylai",
+    "price": 260000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3116.png",
+    "description": "+75 Sức mạnh Phép thuật, +400 Máu. Nội tại - Rét Buốt: Các kỹ năng sát thương làm chậm kẻ địch đi 30% trong 1 giây.",
+    "game": "Liên Minh",
+    "rarity": "Epic",
+    "attributes": "Phép thuật, Máu, Làm chậm",
+    "requiredLevel": 14
+  },
+  {
+    "name": "Giáp Liệt Sĩ",
+    "price": 290000,
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/3742.png",
+    "description": "+300 Máu, +45 Giáp, +5% Tốc độ Di chuyển. Nội tại - Kẻ Hủy Diệt: Di chuyển tích tụ điểm Quán Tính giúp tăng Tốc độ Di chuyển. Đòn đánh thường giải phóng Quán Tính gây sát thương và làm chậm.",
+    "game": "Liên Minh",
+    "rarity": "Epic",
+    "attributes": "Phòng thủ, Giáp, Tốc độ chạy",
+    "requiredLevel": 16
+  }
+]

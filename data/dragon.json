@@ -1,0 +1,202 @@
+[
+    {
+        "name": "Baby Amaterasu",
+        "price": 4500,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Amaterasu",
+        "description": "Bé rồng Nữ Thần Mặt Trời siêu cấp đáng yêu. Mang trên mình vầng hào quang rực rỡ và dải lụa thần thánh trôi nổi xung quanh. Đẹp lộng lẫy ngay từ khi mới nở.",
+        "game": "Dragon Mania",
+        "rarity": "Divine",
+        "attributes": "Thần thánh, Ánh sáng, Lửa",
+        "requiredLevel": 30
+    },
+    {
+        "name": "Baby Anubis",
+        "price": 4200,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Anubis",
+        "description": "Vị thần Ai Cập phiên bản nhí. Đeo mặt nạ chó rừng mạ vàng cực ngầu cùng đôi mắt sáng rực. Vừa mang vẻ huyền bí của bóng tối vừa toát lên sự quyền uy.",
+        "game": "Dragon Mania",
+        "rarity": "Divine",
+        "attributes": "Thần thánh, Đất, Bóng tối",
+        "requiredLevel": 28
+    },
+    {
+        "name": "Baby Apollo",
+        "price": 4200,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Apollo",
+        "description": "Nam thần âm nhạc rực rỡ với mái tóc bốc lửa và chiếc vòng nguyệt quế vàng chói lọi. Hình dạng Baby của Apollo được đánh giá là một trong những thiết kế tinh xảo nhất.",
+        "game": "Dragon Mania",
+        "rarity": "Divine",
+        "attributes": "Thần thánh, Ánh sáng, Lửa",
+        "requiredLevel": 28
+    },
+    {
+        "name": "Baby Archangel",
+        "price": 3500,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Archangel",
+        "description": "Thiên thần nhí với bộ giáp kim loại trắng muốt và đôi cánh ánh sáng tuyệt đẹp. Lớn lên mang sức mạnh bảo hộ tuyệt đối cho toàn đội hình.",
+        "game": "Dragon Mania",
+        "rarity": "Legendary",
+        "attributes": "Huyền thoại, Ánh sáng, Kim loại",
+        "requiredLevel": 25
+    },
+    {
+        "name": "Baby Autumn",
+        "price": 1800,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Autumn",
+        "description": "Bé rồng mang sắc vàng cam ấm áp của mùa thu. Có những chiếc sừng hình nhánh cây và lá phong rơi rụng xung quanh mỗi khi di chuyển.",
+        "game": "Dragon Mania",
+        "rarity": "Epic",
+        "attributes": "Thực vật, Đất, Gió",
+        "requiredLevel": 15
+    },
+    {
+        "name": "Baby Axolotl",
+        "price": 1500,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Axolotl",
+        "description": "Mô phỏng theo loài kỳ giông Mexico cực kỳ dễ thương. Nụ cười ngốc nghếch cùng các nhánh mang màu hồng pastel hai bên đầu khiến ai cũng muốn sở hữu.",
+        "game": "Dragon Mania",
+        "rarity": "Epic",
+        "attributes": "Nước, Đất, Hư không",
+        "requiredLevel": 14
+    },
+    {
+        "name": "Baby Butterfly",
+        "price": 1800,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Butterfly",
+        "description": "Rồng bướm lộng lẫy với đôi cánh khổng lồ sặc sỡ và vệt nhũ hoa lấp lánh rải rắc mỗi nhịp vỗ cánh. Nét đẹp vô cùng nữ tính và mong manh.",
+        "game": "Dragon Mania",
+        "rarity": "Epic",
+        "attributes": "Thực vật, Gió, Ánh sáng",
+        "requiredLevel": 15
+    },
+    {
+        "name": "Baby Celestial",
+        "price": 3800,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Celestial",
+        "description": "Sinh ra từ các vì tinh tú. Bé rồng này bay lơ lửng với một vòng tròn thiên thể xoay quanh thân mình. Màu sắc xanh tím huyền ảo của dải ngân hà.",
+        "game": "Dragon Mania",
+        "rarity": "Legendary",
+        "attributes": "Huyền thoại, Ánh sáng, Gió",
+        "requiredLevel": 26
+    },
+    {
+        "name": "Baby Chang'e",
+        "price": 4500,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Chang%27e",
+        "description": "Rồng Hằng Nga với dáng vẻ e ấp, ôm chú thỏ ngọc xíu xiu trên tay. Dải lụa tiên bay bổng và ánh trăng tỏa ra khiến bé rồng này luôn lọt top yêu thích.",
+        "game": "Dragon Mania",
+        "rarity": "Divine",
+        "attributes": "Thần thánh, Ánh sáng, Năng lượng",
+        "requiredLevel": 30
+    },
+    {
+        "name": "Baby Cherry Blossom",
+        "price": 2000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Cherry+Blossom",
+        "description": "Rồng hoa anh đào. Đỉnh đầu nở rộ một bông anh đào tuyệt đẹp, vảy rồng màu hồng phấn lấp lánh như những cánh hoa đang rơi trong gió xuân.",
+        "game": "Dragon Mania",
+        "rarity": "Epic",
+        "attributes": "Thực vật, Ánh sáng, Gió",
+        "requiredLevel": 16
+    },
+    {
+        "name": "Baby Agave",
+        "price": 1200,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Agave",
+        "description": "Mang vẻ ngoài của loài cây sa mạc gai góc nhưng lại vô cùng bụ bẫm và đáng yêu. Thường xuyên ngậm một bông hoa xương rồng trên miệng.",
+        "game": "Dragon Mania",
+        "rarity": "Epic",
+        "attributes": "Thực vật, Nước, Lửa",
+        "requiredLevel": 12
+    },
+    {
+        "name": "Baby Amazon",
+        "price": 1500,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Amazon",
+        "description": "Rồng chiến binh rừng rậm rực rỡ sắc màu nhiệt đới (xanh, đỏ, vàng) giống hệt một chú vẹt Macaw khổng lồ lai với rồng. Cực kỳ nhanh nhẹn.",
+        "game": "Dragon Mania",
+        "rarity": "Epic",
+        "attributes": "Thực vật, Đất, Gió",
+        "requiredLevel": 14
+    },
+    {
+        "name": "Baby Angler",
+        "price": 1600,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Angler",
+        "description": "Dựa trên loài cá cần câu dưới đáy đại dương. Có một chiếc lồng đèn phát sáng lủng lẳng trước trán và nụ cười ranh mãnh đầy răng nhọn, nửa đáng sợ nửa buồn cười.",
+        "game": "Dragon Mania",
+        "rarity": "Epic",
+        "attributes": "Nước, Bóng tối, Đất",
+        "requiredLevel": 16
+    },
+    {
+        "name": "Baby Ares",
+        "price": 4000,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Ares",
+        "description": "Chiến thần nhí mặc giáp La Mã rực lửa. Dù còn rất nhỏ nhưng ánh mắt đầy sự kiêu hãnh và sẵn sàng nghiền nát mọi kẻ thù trên đấu trường.",
+        "game": "Dragon Mania",
+        "rarity": "Divine",
+        "attributes": "Thần thánh, Lửa, Kim loại",
+        "requiredLevel": 28
+    },
+    {
+        "name": "Baby Avalanche",
+        "price": 1700,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Avalanche",
+        "description": "Rồng tuyết lở với thân hình tròn vo trắng muốt phủ đầy băng tuyết và pha lê xanh lấp lánh. Đi đến đâu mang theo cái lạnh thấu xương đến đó.",
+        "game": "Dragon Mania",
+        "rarity": "Epic",
+        "attributes": "Nước, Đất, Gió",
+        "requiredLevel": 15
+    },
+    {
+        "name": "Baby Berry",
+        "price": 1300,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Berry",
+        "description": "Trông như một chùm quả mọng ngon ngọt dâu rừng thơm phức. Mắt to tròn long lanh và lớp vảy có màu hồng tím cực kỳ thu hút.",
+        "game": "Dragon Mania",
+        "rarity": "Epic",
+        "attributes": "Thực vật, Nước, Năng lượng",
+        "requiredLevel": 12
+    },
+    {
+        "name": "Baby Blossom",
+        "price": 1900,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Blossom",
+        "description": "Toàn thân như được dệt từ những cánh hoa huệ tây và hoa sen thanh khiết. Biểu tượng của sức sống mùa xuân với năng lực chữa lành mạnh mẽ.",
+        "game": "Dragon Mania",
+        "rarity": "Epic",
+        "attributes": "Thực vật, Nước, Ánh sáng",
+        "requiredLevel": 16
+    },
+    {
+        "name": "Baby Bluebeard",
+        "price": 1400,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Bluebeard",
+        "description": "Hải tặc râu xanh phiên bản nhí! Đội mũ cướp biển, cắn tẩu thuốc và có ánh mắt ngạo nghễ dễ thương. Rất ngầu nhưng không kém phần hài hước.",
+        "game": "Dragon Mania",
+        "rarity": "Epic",
+        "attributes": "Nước, Đất, Bóng tối",
+        "requiredLevel": 14
+    },
+    {
+        "name": "Baby Bonsai",
+        "price": 1700,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Bonsai",
+        "description": "Sinh vật nhỏ bé mang cả một gốc cây Bonsai nghệ thuật trên lưng. Tính cách điềm đạm, vảy rồng nứt nẻ như vỏ cây lâu năm rêu phong.",
+        "game": "Dragon Mania",
+        "rarity": "Epic",
+        "attributes": "Thực vật, Đất, Gió",
+        "requiredLevel": 15
+    },
+    {
+        "name": "Baby Candy",
+        "price": 1200,
+        "imageUrl": "https://placehold.co/400x400/1e1e1e/ff9900?text=Baby+Candy",
+        "description": "Rồng kẹo mút sặc sỡ với lớp vảy sọc xoắn ốc như viên kẹo the. Tạo hình siêu ngọt ngào và năng động, khiến game thủ nào cũng muốn nựng.",
+        "game": "Dragon Mania",
+        "rarity": "Epic",
+        "attributes": "Nước, Thực vật, Năng lượng",
+        "requiredLevel": 10
+    }
+]

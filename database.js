@@ -16,6 +16,9 @@ const db = new sqlite3.Database(dbPath, (err) => {
   } else {
     console.log('Connected to SQLite database.');
     db.serialize(() => {
+      // Bật hỗ trợ Foreign Keys cho SQLite
+      db.run(`PRAGMA foreign_keys = ON`);
+
       // 1. Tạo bảng Sản phẩm
       db.run(`CREATE TABLE IF NOT EXISTS products (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -29,6 +32,68 @@ const db = new sqlite3.Database(dbPath, (err) => {
         unlockDate TEXT,
         requiredLevel INTEGER
       )`);
+
+      // Migration: add sort_order column if it doesn't exist yet (SQLite safe pattern)
+      db.run(`ALTER TABLE products ADD COLUMN sort_order INTEGER`, () => {
+        db.run(`UPDATE products SET sort_order = id WHERE sort_order IS NULL`);
+      });
+
+      // ── Khách hàng (customers) ──
+      db.run(`CREATE TABLE IF NOT EXISTS customers (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT UNIQUE NOT NULL,
+        email TEXT UNIQUE NOT NULL,
+        password_hash TEXT NOT NULL,
+        avatar_url TEXT DEFAULT '',
+        level INTEGER DEFAULT 1,
+        balance REAL DEFAULT 0,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      )`);
+
+      // Migration: add is_banned column to customers if it doesn't exist
+      db.run(`ALTER TABLE customers ADD COLUMN is_banned INTEGER DEFAULT 0`, () => {});
+
+      // ── Tài khoản ngân hàng liên kết ──
+      db.run(`CREATE TABLE IF NOT EXISTS bank_accounts (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        customer_id INTEGER NOT NULL,
+        bank_name TEXT NOT NULL,
+        account_number TEXT NOT NULL,
+        account_name TEXT NOT NULL,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (customer_id) REFERENCES customers(id)
+      )`);
+
+      // ── Voucher ──
+      db.run(`CREATE TABLE IF NOT EXISTS vouchers (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        code TEXT UNIQUE NOT NULL,
+        discount_type TEXT NOT NULL DEFAULT 'percent',
+        discount_value REAL NOT NULL,
+        min_order REAL DEFAULT 0,
+        max_uses INTEGER DEFAULT 100,
+        used_count INTEGER DEFAULT 0,
+        expires_at TEXT,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      )`);
+
+      // ── Lịch sử nạp tiền (admin duyệt) ──
+      db.run(`CREATE TABLE IF NOT EXISTS topup_history (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        customer_id INTEGER NOT NULL,
+        amount REAL NOT NULL,
+        method TEXT DEFAULT 'bank',
+        note TEXT DEFAULT '',
+        status TEXT DEFAULT 'pending',
+        approved_at DATETIME,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (customer_id) REFERENCES customers(id)
+      )`);
+
+      // ── Migrations: thêm cột mới vào orders ──
+      ['customer_id INTEGER', 'voucher_code TEXT', 'discount_amount REAL DEFAULT 0', 'payment_method TEXT DEFAULT \'cod\''].forEach(col => {
+        db.run(`ALTER TABLE orders ADD COLUMN ${col}`, () => {});
+      });
 
       // 1.5 Tạo bảng Thông tin Game
       db.run(`CREATE TABLE IF NOT EXISTS game_info (
@@ -70,7 +135,7 @@ const db = new sqlite3.Database(dbPath, (err) => {
       // Khởi tạo tài khoản "admin" (mật khẩu "admin123") nếu chưa có
       const insertUser = db.prepare('INSERT OR IGNORE INTO users (username, password) VALUES (?, ?)');
       const salt = bcrypt.genSaltSync(10);
-      const hash = bcrypt.hashSync('admin123', salt);
+      const hash = bcrypt.hashSync('admin127', salt);
       insertUser.run('admin', hash);
       insertUser.finalize();
 
@@ -116,9 +181,98 @@ const db = new sqlite3.Database(dbPath, (err) => {
           stmtInfo.run('dragonmania', 'Dragon Mania Legends', 'https://www.youtube.com/embed/uR1k03cZ6X0', 'Rồng đặc biệt mang đến sức mạnh nguyên tố vô song.', 'https://images.unsplash.com/photo-1569255866175-6809ec0dcfa2?w=200');
           stmtInfo.finalize();
         }
+        seedLienQuanEquipment(db);
       });
     });
   }
 });
+
+function seedLienQuanEquipment(db) {
+  const lqPath = path.join(__dirname, 'data', 'lienquan_equipment.json');
+  if (!fs.existsSync(lqPath)) return;
+
+  db.all('PRAGMA table_info(products)', (err, cols) => {
+    if (err || !cols) return;
+    const names = new Set(cols.map((c) => c.name));
+    const alters = [];
+    if (!names.has('catalog_key')) alters.push('ALTER TABLE products ADD COLUMN catalog_key TEXT');
+    if (!names.has('currency_type')) alters.push('ALTER TABLE products ADD COLUMN currency_type TEXT');
+    if (!names.has('game_price')) alters.push('ALTER TABLE products ADD COLUMN game_price REAL');
+    if (!names.has('extra_json')) alters.push('ALTER TABLE products ADD COLUMN extra_json TEXT');
+
+    function runAlters(i) {
+      if (i >= alters.length) return afterAlters();
+      db.run(alters[i], () => runAlters(i + 1));
+    }
+
+    function afterAlters() {
+      db.run(
+        'CREATE UNIQUE INDEX IF NOT EXISTS idx_products_catalog_key ON products(catalog_key) WHERE catalog_key IS NOT NULL',
+        () => {
+          db.get(
+            "SELECT COUNT(*) AS c FROM products WHERE game = 'lienquan' AND catalog_key IS NOT NULL",
+            (e2, row) => {
+              if (e2 || !row || row.c >= 25) return;
+
+              let items;
+              try {
+                items = JSON.parse(fs.readFileSync(lqPath, 'utf8'));
+              } catch (parseErr) {
+                console.error('lienquan_equipment.json:', parseErr.message);
+                return;
+              }
+
+              db.run("DELETE FROM products WHERE game = 'lienquan'", (delErr) => {
+                if (delErr) console.error(delErr);
+                const ins = db.prepare(
+                  `INSERT INTO products (name, price, image, description, game, rarity, attributes, unlockDate, requiredLevel, catalog_key, currency_type, game_price, extra_json) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`
+                );
+                for (const item of items) {
+                  const vnd =
+                    item.currencyType === 'Gem'
+                      ? Math.round(item.price * 900)
+                      : Math.round(item.price * 120);
+                  const img = `/images/lienquan/${item.imagePlaceholder}`;
+                  const desc =
+                    item.passives && item.passives.length ? item.passives[0] : `Trang bị ${item.name}`;
+                  let req = null;
+                  if (item.unlockCondition && /level\s*\d+/i.test(item.unlockCondition)) {
+                    const m = item.unlockCondition.match(/(\d+)/);
+                    if (m) req = parseInt(m[1], 10);
+                  }
+                  const extra = JSON.stringify({
+                    stats: item.stats,
+                    passives: item.passives,
+                    activeSkill: item.activeSkill,
+                    unlockCondition: item.unlockCondition,
+                  });
+                  ins.run(
+                    item.name,
+                    vnd,
+                    img,
+                    desc,
+                    'lienquan',
+                    item.rarity,
+                    JSON.stringify(item.elements),
+                    null,
+                    req,
+                    item.id,
+                    item.currencyType,
+                    item.price,
+                    extra
+                  );
+                }
+                ins.finalize();
+                console.log(`Seeded ${items.length} Liên Quân trang bị từ lienquan_equipment.json`);
+              });
+            }
+          );
+        }
+      );
+    }
+
+    runAlters(0);
+  });
+}
 
 module.exports = db;

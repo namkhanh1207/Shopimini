@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Lựu Đạn (Pháo vương)",
+    "price": 450000,
+    "imageUrl": "https://img.upanh.tv/2024/04/08/luudan.png",
+    "description": "+200 Sát thương. Vũ khí cơ bản nhưng có sức công phá diện rộng cực lớn, đào hố cực sâu.",
+    "game": "Gunny",
+    "rarity": "Epic",
+    "attributes": "Vũ khí, Công phá, Đào đất",
+    "requiredLevel": 10
+  },
+  {
+    "name": "Sấm Sét (Thunder)",
+    "price": 550000,
+    "imageUrl": "https://img.upanh.tv/2024/04/08/samset.png",
+    "description": "+220 Sát thương, +50 Tốc độ. Tăng tỷ lệ chí mạng và tốc độ bay của đạn.",
+    "game": "Gunny",
+    "rarity": "Legendary",
+    "attributes": "Vũ khí, Chí mạng, Tốc độ",
+    "requiredLevel": 20
+  },
+  {
+    "name": "Tủ Thuốc (Medkit)",
+    "price": 380000,
+    "imageUrl": "https://img.upanh.tv/2024/04/08/tuthuoc.png",
+    "description": "Hồi phục 500 HP mỗi lượt cho bản thân và đồng đội xung quanh.",
+    "game": "Gunny",
+    "rarity": "Epic",
+    "attributes": "Vũ khí, Hồi máu, Hỗ trợ",
+    "requiredLevel": 15
+  },
+  {
+    "name": "Lu Gạch (Brick)",
+    "price": 420000,
+    "imageUrl": "https://img.upanh.tv/2024/04/08/lugach.png",
+    "description": "+210 Sát thương. Khả năng gây choáng (stun) cực cao khiến đối thủ mất lượt.",
+    "game": "Gunny",
+    "rarity": "Epic",
+    "attributes": "Vũ khí, Choáng, Sát thương",
+    "requiredLevel": 18
+  },
+  {
+    "name": "Wow - Lu Gạch VIP",
+    "price": 850000,
+    "imageUrl": "https://img.upanh.tv/2024/04/08/lugachvip.png",
+    "description": "Phiên bản nâng cấp của Lu Gạch với chỉ số phòng thủ và tấn công vượt trội.",
+    "game": "Gunny",
+    "rarity": "Legendary",
+    "attributes": "Vũ khí, VIP, Choáng",
+    "requiredLevel": 25
+  },
+  {
+    "name": "Tivi (Television)",
+    "price": 300000,
+    "imageUrl": "https://img.upanh.tv/2024/04/08/tivi.png",
+    "description": "+180 Sát thương. Góc bắn rộng, dễ sử dụng cho người mới.",
+    "game": "Gunny",
+    "rarity": "Rare",
+    "attributes": "Vũ khí, Góc rộng",
+    "requiredLevel": 5
+  },
+  {
+    "name": "Búa Tạ (Hammer)",
+    "price": 280000,
+    "imageUrl": "https://img.upanh.tv/2024/04/08/buata.png",
+    "description": "+230 Sát thương. Sức mạnh thuần túy, sát thương vật lý cao nhất trong các vũ khí thường.",
+    "game": "Gunny",
+    "rarity": "Rare",
+    "attributes": "Vũ khí, Mạnh mẽ",
+    "requiredLevel": 8
+  },
+  {
+    "name": "Trứng Gà (Egg)",
+    "price": 320000,
+    "imageUrl": "https://img.upanh.tv/2024/04/08/trungga.png",
+    "description": "+190 Sát thương. Đạn bay theo quỹ đạo khó lường, gây bất ngờ cho đối thủ.",
+    "game": "Gunny",
+    "rarity": "Rare",
+    "attributes": "Vũ khí, Quỹ đạo",
+    "requiredLevel": 12
+  }
+]

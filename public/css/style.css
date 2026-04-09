@@ -1,3 +1,977 @@
+/* ========== ShopiMini — phong cách cửa hàng game ========== */
+
+.shop-body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Nunito", system-ui, sans-serif;
+  color: #1a2f2a;
+  overflow-x: hidden;
+}
+
+.shop-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(165deg, #1a6b5c 0%, #0d3d35 35%, #1a4d3a 70%, #234d32 100%);
+}
+.shop-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='4' cy='4' r='1.2' fill='%23ffffff' fill-opacity='0.06'/%3E%3C/svg%3E");
+  opacity: 0.9;
+}
+.shop-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 60% at 50% 18%, rgba(255, 248, 200, 0.18), transparent 50%),
+    radial-gradient(ellipse 55% 45% at 15% 75%, rgba(80, 180, 200, 0.12), transparent 45%),
+    radial-gradient(ellipse 50% 40% at 92% 60%, rgba(120, 220, 160, 0.1), transparent 40%);
+  pointer-events: none;
+}
+
+.shop-bg-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.45), inset 0 -80px 100px rgba(20, 60, 50, 0.35);
+}
+
+.shop-app {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 0.75rem 2rem;
+}
+
+.shop-outer-frame {
+  border-radius: 28px;
+  padding: 10px;
+  background: linear-gradient(
+    145deg,
+    #8b6914 0%,
+    #d4af37 18%,
+    #f9e4a8 38%,
+    #c9a227 55%,
+    #7a5c1a 100%
+  );
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), inset 0 2px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Top bar */
+.shop-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 1.1rem 1rem;
+  flex-wrap: wrap;
+  background: linear-gradient(180deg, rgba(45, 95, 88, 0.95), rgba(25, 70, 62, 0.98));
+  border-radius: 20px 20px 0 0;
+  border: 3px solid #3d7a6e;
+  border-bottom: none;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.12), inset 0 -8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.shop-topbar-left {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.shop-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fff8e7, #e8d4a8);
+  border: 3px solid #f5e6a9;
+  box-shadow: 0 4px 0 #b8860b, 0 6px 12px rgba(0, 0, 0, 0.25);
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+}
+
+.shop-notify-badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #e63946;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.shop-logo-wrap {
+  flex: 1;
+  text-align: center;
+}
+
+.shop-logo {
+  margin: 0;
+  font-family: "Chewy", "Fredoka", cursive;
+  font-weight: 400;
+  font-size: clamp(2.35rem, 7vw, 3.25rem);
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-shadow: 0 3px 0 #0a3d38, 0 5px 0 #052a26, 0 2px 8px rgba(255, 255, 200, 0.35),
+    0 10px 20px rgba(0, 0, 0, 0.35);
+  line-height: 1;
+  filter: drop-shadow(0 0 12px rgba(255, 220, 120, 0.25));
+}
+
+.shop-logo-sub {
+  margin: 0.15rem 0 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: rgba(200, 245, 220, 0.85);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.shop-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.shop-currency {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: linear-gradient(180deg, #fffef5, #f0e6c8);
+  border: 2px solid #d4b87a;
+  border-radius: 999px;
+  padding: 0.25rem 0.5rem 0.25rem 0.4rem;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.8), 0 3px 0 #9a7b3a;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: #3d2914;
+}
+
+.shop-currency-icon {
+  font-size: 1rem;
+}
+.shop-currency-val {
+  min-width: 2.5rem;
+}
+.shop-currency-plus {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: none;
+  background: linear-gradient(180deg, #7bc96f, #4a9c3f);
+  color: #fff;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 1;
+  cursor: default;
+  opacity: 0.85;
+  box-shadow: 0 2px 0 #2d6a26;
+}
+
+.shop-icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  font-size: 1.25rem;
+  background: linear-gradient(180deg, #fffef8, #e8dfc4);
+  border: 2px solid #c9a227;
+  box-shadow: 0 4px 0 #8b6914, 0 6px 10px rgba(0, 0, 0, 0.2);
+  color: #2a1810;
+  position: relative;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.shop-icon-btn:hover {
+  transform: translateY(-2px);
+  color: #1a1008;
+  box-shadow: 0 5px 0 #8b6914, 0 8px 14px rgba(0, 0, 0, 0.22);
+}
+
+.shop-cart-nudge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #e63946;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff;
+}
+
+/* Main panel */
+.shop-panel {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  background: linear-gradient(175deg, #f7f2e4 0%, #ebe4d2 35%, #e8f5ef 100%);
+  border-radius: 0 0 22px 22px;
+  border: 3px solid #c9a227;
+  border-top: 2px solid rgba(201, 162, 39, 0.65);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.3), inset 0 0 80px rgba(255, 255, 255, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  padding: 1rem 1rem 1.25rem;
+  min-height: 440px;
+  overflow: hidden;
+}
+
+.shop-panel-shine {
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  width: 70%;
+  height: 80%;
+  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.45), transparent 65%);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.shop-sidebar {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 208px;
+  background: linear-gradient(175deg, #5ec4b6 0%, #3a9b8f 40%, #2d7f75 100%);
+  border-radius: 18px;
+  border: 3px solid #1f5c54;
+  padding: 0.85rem 0.55rem;
+  box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.35), inset 0 -6px 16px rgba(0, 0, 0, 0.18),
+    0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.shop-sidebar-title {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.shop-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.shop-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.55rem 0.6rem;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fffef6, #e8dfc8);
+  color: #3d2914;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, border-color 0.15s ease;
+}
+.shop-nav-item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 220, 120, 0.8);
+}
+.shop-nav-item.active {
+  background: linear-gradient(180deg, #fffce8, #ffd966);
+  border-color: #f4c430;
+  box-shadow: 0 0 0 3px rgba(255, 215, 80, 0.55), 0 4px 0 #9a7209, inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+.shop-nav-item.active::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 8px solid transparent;
+  border-left: 10px solid #ffd966;
+  filter: drop-shadow(2px 0 2px rgba(0, 0, 0, 0.15));
+  pointer-events: none;
+}
+
+.shop-nav-ico {
+  font-size: 1.1rem;
+  width: 1.5rem;
+  text-align: center;
+}
+.shop-nav-txt {
+  flex: 1;
+  line-height: 1.2;
+}
+
+.shop-nav-info {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #ff9f43, #e67e22);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  font-style: italic;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 0 #a05010;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.shop-nav-info:hover {
+  filter: brightness(1.08);
+}
+
+.shop-main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.shop-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.shop-search-wrap {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+.shop-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.55;
+  pointer-events: none;
+  font-size: 0.95rem;
+}
+.shop-search {
+  width: 100%;
+  padding: 0.65rem 0.85rem 0.65rem 2.5rem;
+  border-radius: 999px;
+  border: 2px solid #8fbc8f;
+  background: #fffef8;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1a2f2a;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+.shop-search:focus {
+  outline: none;
+  border-color: #2a8f7a;
+  box-shadow: 0 0 0 3px rgba(42, 143, 122, 0.25);
+}
+
+.shop-select {
+  padding: 0.55rem 2rem 0.55rem 0.75rem;
+  border-radius: 999px;
+  border: 2px solid #7eb8ad;
+  background: linear-gradient(180deg, #f5fffc, #d8efe8);
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #0d4a42;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%230d4a42' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.65rem center;
+}
+
+/* Product row (carousel như Dragon Mania) */
+.shop-grid-wrap {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  margin: 0 -0.15rem;
+  padding: 0 2.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #c9a227 #f0ead8;
+}
+
+.shop-grid-wrap::-webkit-scrollbar {
+  height: 10px;
+}
+.shop-grid-wrap::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c9a227, #8b6914);
+  border-radius: 999px;
+}
+
+.shop-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding: 0.5rem 0.15rem 1rem;
+  min-height: 1px;
+}
+
+.shop-scroll-hint {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  width: 38px;
+  height: 100px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(180deg, #4aa89a, #2d6f66);
+  box-shadow: 0 4px 0 #1a4d45, inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  line-height: 1;
+  transition: filter 0.15s ease, transform 0.1s ease;
+}
+.shop-scroll-hint:hover {
+  filter: brightness(1.08);
+}
+.shop-scroll-left {
+  left: 2px;
+}
+.shop-scroll-right {
+  right: 2px;
+}
+
+@media (max-width: 520px) {
+  .shop-grid-wrap {
+    padding: 0 2rem;
+  }
+  .shop-scroll-hint {
+    width: 32px;
+    height: 88px;
+    font-size: 1.4rem;
+  }
+}
+
+/* =============================================
+   GAMIFIED GACHA CARD v2 — True DML Aesthetic
+   ============================================= */
+.shop-card {
+  position: relative;
+  flex: 0 0 260px;
+  width: 260px;
+  min-height: 370px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  /* Thick metallic border - default gold, overridden by rarity classes */
+  border: 8px solid #c9a227;
+  /* Hard chunky shadow like a 3D plastic card */
+  box-shadow: 0 12px 0 rgba(0,0,0,0.3), 0 16px 35px rgba(0,0,0,0.4);
+  overflow: hidden;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s ease;
+  background: #c8eeff; /* inner fill (will be covered by sections) */
+}
+.shop-card::after {
+  /* Shimmering inner highlight — like a lit frame */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.5), inset 0 3px 0 rgba(255,255,255,0.6);
+  pointer-events: none;
+  z-index: 20;
+}
+.shop-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 0 rgba(0,0,0,0.2), 0 28px 50px rgba(0,0,0,0.45);
+}
+
+/* === Rarity Borders & Glow === */
+.shop-card.rarity-legendary {
+  border-color: #FFD700;
+  box-shadow: 0 12px 0 #7a5a00, 0 0 30px rgba(255,215,0,0.6), 0 16px 35px rgba(0,0,0,0.35);
+}
+.shop-card.rarity-epic {
+  border-color: #BB00FF;
+  box-shadow: 0 12px 0 #5c0080, 0 0 28px rgba(187,0,255,0.5), 0 16px 35px rgba(0,0,0,0.35);
+}
+.shop-card.rarity-rare {
+  border-color: #0077FF;
+  box-shadow: 0 12px 0 #003f99, 0 0 25px rgba(0,119,255,0.5), 0 16px 35px rgba(0,0,0,0.35);
+}
+.shop-card.rarity-common {
+  border-color: #8AABB5;
+  box-shadow: 0 10px 0 #3e5a62, 0 14px 30px rgba(0,0,0,0.25);
+}
+
+/* === TOP ~65% — Scenic image zone === */
+.shop-card-visual {
+  position: relative;
+  width: 100%;
+  height: 220px;   /* taller — DML cards are portrait with image dominant */
+  overflow: hidden;
+  /* Rich sky-to-horizon gradient */
+  background:
+    linear-gradient(180deg, #87CEEB 0%, #B0E0FF 35%, #C8F0FF 55%, #9BE09B 55%, #7BC66A 70%, #5FAA4D 100%);
+  border-bottom: 4px solid rgba(0,0,0,0.4);
+  flex-shrink: 0;
+}
+.shop-card-visual img {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 78%;
+  max-width: 88%;
+  width: auto;
+  height: auto;
+  /* object-fit contain so item images show properly, not cropped */
+  object-fit: contain;
+  filter: drop-shadow(0 12px 14px rgba(0,0,0,0.55));
+  z-index: 2;
+}
+/* Grass hills overlay */
+.shop-card-visual::before {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: -25%;
+  width: 175%;
+  height: 65px;
+  background: radial-gradient(ellipse at 50% 100%, #4FAD3A 0%, #3D8F2C 100%);
+  border-radius: 50% 55% 0 0;
+  z-index: 1;
+}
+/* Lake/water shimmer at bottom */
+.shop-card-visual::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 26px;
+  background: linear-gradient(180deg, rgba(64,175,220,0.7) 0%, rgba(32,130,180,0.85) 100%);
+  z-index: 1;
+}
+
+/* === Rarity Badge — TOP LEFT metallic shield === */
+.shop-card-badge-rarity {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  width: 42px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #fff;
+  text-shadow: 0 2px 3px rgba(0,0,0,0.8);
+  -webkit-text-stroke: 1px rgba(0,0,0,0.4);
+  border-radius: 0 0 18px 0;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.5), inset 0 2px 0 rgba(255,255,255,0.4);
+}
+.rarity-legendary .shop-card-badge-rarity {
+  background: linear-gradient(160deg, #FFEA44 0%, #FFA800 50%, #9A6200 100%);
+}
+.rarity-epic .shop-card-badge-rarity {
+  background: linear-gradient(160deg, #E090FF 0%, #AA00FF 50%, #5E0099 100%);
+}
+.rarity-rare .shop-card-badge-rarity {
+  background: linear-gradient(160deg, #7EDBFF 0%, #0077FF 50%, #003B9E 100%);
+}
+.rarity-common .shop-card-badge-rarity {
+  background: linear-gradient(160deg, #C8D6DC 0%, #7A9099 50%, #3E5560 100%);
+}
+
+/* === Info Button — TOP RIGHT orange square (DML iconic) === */
+.shop-card-info-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 6;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 3px solid #7a3500;
+  background: linear-gradient(180deg, #FFB830 0%, #FF7800 60%, #E05500 100%);
+  color: #fff;
+  font-family: "Fredoka", sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  font-style: italic;
+  cursor: pointer;
+  box-shadow:
+    0 -2px 0 rgba(255,255,255,0.45) inset,
+    0 5px 0 #7a3500,
+    0 8px 12px rgba(0,0,0,0.4);
+  transition: transform 0.1s, box-shadow 0.1s;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.4);
+}
+.shop-card-info-btn:hover { filter: brightness(1.12); }
+.shop-card-info-btn:active {
+  transform: translateY(5px);
+  box-shadow: 0 1px 0 #7a3500, 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* === RIBBON BANNER — Overlaps image/bottom seam === */
+.shop-card-ribbon {
+  position: relative;
+  z-index: 5;
+  /* Negative margin PULLS the ribbon UP to overlap image bottom edge */
+  margin: -14px -2px 0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Vivid gold-orange like DML item name banner */
+  background: linear-gradient(180deg, #FFE038 0%, #FFA500 55%, #FF7700 100%);
+  border-top: 4px solid #7a4200;
+  border-bottom: 4px solid #7a4200;
+  box-shadow:
+    0 8px 0 rgba(0,0,0,0.3),
+    inset 0 3px 0 rgba(255,255,255,0.5),
+    inset 0 -2px 0 rgba(0,0,0,0.2);
+  /* Classic DML arrow-cut ribbon shape */
+  clip-path: polygon(3.5% 0%, 96.5% 0%, 100% 50%, 96.5% 100%, 3.5% 100%, 0% 50%);
+  flex-shrink: 0;
+}
+.shop-card-ribbon span {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 210px;
+  padding: 0 10px;
+  /* Black outline on white text = maximum cartoon readability */
+  -webkit-text-stroke: 2px #4a2000;
+  text-shadow: 0 3px 0 #4a2000, 0 0 15px rgba(255,200,50,0.5);
+}
+
+/* === BOTTOM SECTION — Warm parchment base === */
+.shop-card-bottom {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 12px 12px;
+  /* Rich warm gold parchment — like DML card bases */
+  background: linear-gradient(175deg, #F5DFA0 0%, #DDBC5A 50%, #CBA840 100%);
+  border-top: 2px solid rgba(180,130,0,0.4);
+  /* Subtle paper texture via box-shadow */
+  box-shadow: inset 0 4px 8px rgba(255,255,255,0.35);
+}
+
+/* === Element Icon Row — Blue 3D circular elemental icons === */
+.shop-card-elements {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.shop-card-elem-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  /* Blue glossy sphere (DML uses blue for elemental circles universally) */
+  background: radial-gradient(circle at 38% 32%, #74D1FF 0%, #1B90D8 45%, #0055A8 100%);
+  border: 3px solid #003F80;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  box-shadow:
+    0 5px 5px rgba(0,0,0,0.4),
+    inset 0 3px 0 rgba(255,255,255,0.5),
+    inset 0 -3px 0 rgba(0,0,70,0.4);
+}
+
+/* === Action Button — Big price button with coin icon === */
+.shop-card-buy {
+  width: 100%;
+  height: 56px;
+  margin-top: auto;
+  border-radius: 16px;
+  border: 4px solid #106300;
+  /* Bright, saturated green — very DML */
+  background: linear-gradient(180deg, #6AE030 0%, #3DBF00 45%, #279500 100%);
+  color: #fff;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  -webkit-text-stroke: 1.5px #0a3800;
+  text-shadow: 0 3px 0 #0a3800;
+  box-shadow:
+    inset 0 3px 0 rgba(255,255,255,0.45),
+    0 6px 0 #0a4000,
+    0 10px 16px rgba(0,0,0,0.3);
+  transition: transform 0.12s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.12s ease;
+}
+.shop-card-buy:hover {
+  filter: brightness(1.08);
+  transform: translateY(-3px);
+  box-shadow: inset 0 3px 0 rgba(255,255,255,0.45), 0 9px 0 #0a4000, 0 14px 20px rgba(0,0,0,0.35);
+}
+.shop-card-buy:active {
+  transform: translateY(6px);
+  box-shadow: inset 0 3px 0 rgba(255,255,255,0.2), 0 0 0 #0a4000;
+}
+.shop-card-buy.is-busy {
+  background: linear-gradient(180deg, #5AC878, #2fa055);
+  border-color: #1a5c35;
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.3), 0 4px 0 #0d3520;
+}
+/* LOCKED — gray embossed/debossed like real DML 'Unlocked at level 9' btn */
+.shop-card-buy.is-locked {
+  background: linear-gradient(180deg, #8E9BA6 0%, #6A757F 50%, #536068 100%);
+  border-color: #38474F;
+  box-shadow:
+    inset 0 2px 5px rgba(0,0,0,0.5),
+    inset 0 -1px 0 rgba(255,255,255,0.1),
+    0 3px 0 #222C30;
+  cursor: not-allowed;
+  -webkit-text-stroke: 1px rgba(0,0,0,0.5);
+  text-shadow: 0 -1px 0 rgba(255,255,255,0.2), 0 2px 0 rgba(0,0,0,0.6);
+  font-size: 0.95rem;
+  color: #C5D0D6;
+}
+.shop-card-buy .coin-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+}
+
+/* === Hide legacy elements not shown in DML layout === */
+.shop-card-gem       { display: none; }
+.shop-card-corner    { display: none; }
+.shop-card-tags      { display: none; }
+.shop-card-desc      { display: none; }
+.shop-card-more-hint { display: none; }
+.shop-card-level     { display: none; }
+.shop-card-prices    { display: none; }
+
+/* === Animation === */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fade-in-up 0.4s ease both;
+}
+
+.shop-empty-wide {
+  flex: 1 1 100%;
+  min-width: 100%;
+  width: 100%;
+  text-align: center;
+  padding: 2.5rem 1rem !important;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.2rem;
+  color: #3d6b40;
+}
+
+.shop-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  color: #0d4a42;
+  opacity: 0.75;
+}
+
+/* Modal game */
+.shop-modal {
+  background: linear-gradient(180deg, #fffef8, #f0ebe0);
+  border: 3px solid #c9a227;
+  border-radius: 16px;
+  color: #1a2f2a;
+}
+.shop-modal .modal-header {
+  border-color: rgba(201, 162, 39, 0.4);
+}
+.shop-modal .modal-footer {
+  border-color: rgba(201, 162, 39, 0.4);
+}
+.shop-btn-primary {
+  background: linear-gradient(180deg, #6fcf7a, #3dad4a);
+  border: 2px solid #2d8f3a;
+  color: #fff;
+  font-weight: 800;
+  border-radius: 12px;
+  padding: 0.5rem 1.25rem;
+  box-shadow: 0 3px 0 #1e6b28;
+}
+
+.shop-btn-secondary {
+  background: linear-gradient(180deg, #e8e0d0, #cfc4b0);
+  border: 2px solid #8a7a62;
+  color: #3d2914;
+  font-weight: 800;
+  border-radius: 12px;
+  padding: 0.45rem 1.1rem;
+  box-shadow: 0 3px 0 #6b5d48;
+}
+
+.shop-item-modal .modal-body {
+  font-size: 0.92rem;
+  color: #2a3d38;
+}
+
+.item-modal-head {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.item-modal-visual {
+  flex: 0 0 140px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 3px solid #c9a227;
+  box-shadow: 0 4px 0 #8b6914;
+  background: #a8cfc4;
+}
+.item-modal-visual img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+.item-modal-rarity {
+  font-weight: 800;
+}
+
+.item-modal-gameprice {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #b8860b;
+  margin: 0.35rem 0 0;
+}
+
+.item-modal-vnd {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #2d6a5e;
+  margin: 0.15rem 0 0;
+}
+
+.item-modal-h {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1a5c52;
+  margin: 0.85rem 0 0.35rem;
+  border-bottom: 2px solid rgba(201, 162, 39, 0.45);
+  padding-bottom: 0.2rem;
+}
+
+.item-modal-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: #3d4f49;
+  line-height: 1.45;
+}
+.item-modal-list li {
+  margin-bottom: 0.35rem;
+}
+.item-modal-passives li {
+  list-style-type: "◆ ";
+}
+.item-modal-passive {
+  background: rgba(255, 248, 220, 0.7);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 10px;
+  padding: 0.5rem 0.65rem;
+  margin: 0;
+  line-height: 1.45;
+}
+.item-modal-unlock {
+  margin: 0.75rem 0 0;
+  font-size: 0.88rem;
+  color: #5c4a3a;
+}
+.item-modal-disclaimer {
+  margin: 1rem 0 0;
+  font-size: 0.72rem;
+  color: #6b7a74;
+  font-style: italic;
+  border-top: 1px dashed rgba(0, 0, 0, 0.12);
+  padding-top: 0.65rem;
+}
+
+@media (max-width: 768px) {
+  .shop-panel {
+    flex-direction: column;
+  }
+  .shop-sidebar {
+    flex: none;
+    width: 100%;
+  }
+  .shop-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .shop-nav-item {
+    flex: 1 1 calc(50% - 0.25rem);
+  }
+  .shop-nav-item.active::after {
+    display: none;
+  }
+  .shop-logo-wrap {
+    order: -1;
+    width: 100%;
+    flex: none;
+  }
+}
+
+/* ========== Legacy (cart, checkout, admin login) ========== */
 :root {
   --bg-dark: #0a0a0a;
   --text-light: #ffffff;
@@ -6,15 +980,16 @@
   --neon-pink: #ff66cc;
   --card-bg: #1a1a1a;
 }
-body {
+
+body:not(.shop-body) {
   background-color: var(--bg-dark);
   color: var(--text-light);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
 }
-/* Navbar */
+
 .navbar {
-  background-color: rgba(10,10,10,0.9);
+  background-color: rgba(10, 10, 10, 0.9);
   border-bottom: 1px solid var(--neon-cyan);
   box-shadow: 0 0 10px var(--neon-cyan);
 }
@@ -26,17 +1001,7 @@ body {
 .navbar-nav .nav-link {
   color: var(--text-light) !important;
 }
-/* Hero */
-.hero-section {
-  text-align: center;
-  margin: 40px 0;
-  padding: 40px;
-  background: linear-gradient(135deg, rgba(170,0,255,0.2), transparent);
-  border-radius: 12px;
-  border: 1px solid var(--neon-purple);
-  box-shadow: 0 0 15px var(--neon-purple);
-}
-/* Buttons */
+
 .btn-primary-custom {
   background-color: transparent;
   color: var(--text-light);
@@ -52,122 +1017,81 @@ body {
   box-shadow: 0 0 15px var(--neon-cyan) inset, 0 0 15px var(--neon-cyan);
   transform: scale(1.05);
 }
-.btn-success-custom {
-  background-color: transparent;
+
+.cart-badge {
+  position: absolute;
+  top: 5px;
+  right: -5px;
+  font-size: 10px;
+  background: var(--neon-pink);
   color: var(--text-light);
-  border: 1px solid var(--neon-pink);
-  box-shadow: 0 0 5px var(--neon-pink) inset, 0 0 5px var(--neon-pink);
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  padding: 8px 16px;
-}
-.btn-success-custom:hover {
-  background-color: var(--neon-pink);
-  color: var(--bg-dark);
-  box-shadow: 0 0 15px var(--neon-pink) inset, 0 0 15px var(--neon-pink);
-}
-/* Product Card */
-.product-card {
-  background-color: var(--card-bg);
-  border: 1px solid #333;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-.product-card:hover {
-  transform: scale(1.05);
-  border-color: var(--neon-purple);
-  box-shadow: 0 0 15px var(--neon-purple);
-  z-index: 10;
-  position: relative;
-}
-.product-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-.product-card .card-title {
-  color: var(--neon-cyan);
-}
-.product-price {
-  font-size: 1.25rem;
-  color: var(--neon-pink);
+  border-radius: 50%;
+  padding: 3px 6px;
   font-weight: bold;
-  margin: 10px 0;
+  box-shadow: 0 0 5px var(--neon-pink);
 }
-.badge-game {
-  background-color: rgba(0,255,255,0.2);
-  color: var(--neon-cyan);
-  border: 1px solid var(--neon-cyan);
+
+.checkout-box {
+  background: var(--card-bg);
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.08);
 }
-.badge-rarity {
-  background-color: rgba(170,0,255,0.2);
-  color: #e0b3ff;
-  border: 1px solid var(--neon-purple);
+
+body:not(.shop-body) .table {
+  color: var(--text-light);
 }
-/* Animations */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+body:not(.shop-body) .form-control,
+body:not(.shop-body) .form-select {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-light) !important;
+  border: 1px solid #444;
 }
-.fade-in-up {
-  opacity: 0;
-  animation: fadeInUp 0.5s ease forwards;
+body:not(.shop-body) .form-control:focus,
+body:not(.shop-body) .form-select:focus {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 8px var(--neon-cyan);
 }
-/* Modal */
-.modal-content {
+
+body:not(.shop-body) .modal-content {
   background-color: var(--card-bg);
   color: var(--text-light);
   border: 1px solid var(--neon-cyan);
   box-shadow: 0 0 20px var(--neon-cyan);
 }
-.modal-header, .modal-footer {
+body:not(.shop-body) .modal-header,
+body:not(.shop-body) .modal-footer {
   border-color: #333;
 }
-.btn-close {
+body:not(.shop-body) .btn-close {
   filter: invert(1);
 }
-/* Filter Buttons */
-.filter-btn {
-  margin: 5px;
-  border: 1px solid var(--neon-cyan);
-  color: var(--neon-cyan);
-  background: transparent;
-  transition: 0.3s;
-  border-radius: 20px;
-  padding: 5px 15px;
-}
-.filter-btn:hover, .filter-btn.active {
-  background: var(--neon-cyan);
-  color: var(--bg-dark);
-  box-shadow: 0 0 10px var(--neon-cyan);
-}
-/* Forms */
-.form-control, .form-select {
-  background-color: var(--bg-dark) !important;
-  color: var(--text-light) !important;
+
+.cart-item-img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
   border: 1px solid #444;
 }
-.form-control:focus, .form-select:focus {
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 8px var(--neon-cyan);
-}
-/* Cart Badge */
-.cart-badge {
-    position: absolute;
-    top: 5px;
-    right: -5px;
-    font-size: 10px;
-    background: var(--neon-pink);
-    color: var(--text-light);
-    border-radius: 50%;
-    padding: 3px 6px;
-    font-weight: bold;
-    box-shadow: 0 0 5px var(--neon-pink);
-}
-/* Tables */
+
 .table-dark {
   --bs-table-bg: var(--card-bg);
   --bs-table-striped-bg: #222;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.45s ease forwards;
 }
