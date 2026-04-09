@@ -1,0 +1,162 @@
+[
+    {
+        "name": "One Punch",
+        "price": 999000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/6/63/One_Punch.png",
+        "description": "Sát thương: 999. Năng lượng: 99. Kích hoạt một cú đấm hủy diệt tiêu diệt hầu hết mọi Boss trong một đòn. Sau khi sử dụng, vũ khí sẽ trở thành một chiếc găng tay trắng bình thường với sát thương cực thấp.",
+        "game": "Soul Knight",
+        "rarity": "Legendary",
+        "attributes": "Cận chiến, Hủy diệt, Dùng 1 lần",
+        "requiredLevel": 35
+    },
+    {
+        "name": "Varkolyn Assault Rifle",
+        "price": 450000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/2/25/Varkolyn_Assault_Rifle.png",
+        "description": "Chế độ 1: Bắn đạn súng trường tốc độ cao không tốn năng lượng (0 Energy), có tỷ lệ gây độc. Chế độ 2: Bắn tỉa xuyên thấu cực mạnh (Sát thương: 15, Năng lượng: 4).",
+        "game": "Soul Knight",
+        "rarity": "Legendary",
+        "attributes": "Súng trường, Độc, Bắn tỉa",
+        "requiredLevel": 20
+    },
+    {
+        "name": "Thunder Sword",
+        "price": 500000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/a/a2/Thunder_Sword.png",
+        "description": "Sát thương: 8, Năng lượng: 6. Chém ra các tia sét giật liên hoàn giữa các kẻ địch, làm choáng và gây sát thương diện rộng cực khủng. Tốc độ đánh nhanh.",
+        "game": "Soul Knight",
+        "rarity": "Legendary",
+        "attributes": "Cận chiến, Sét, Khống chế",
+        "requiredLevel": 25
+    },
+    {
+        "name": "Soul Calibre",
+        "price": 420000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/e/ea/Soul_Calibre.png",
+        "description": "Sát thương: 25, Năng lượng: 9, Chí mạng: 50. Khẩu súng bắn tỉa đáng sợ nhất game với tỷ lệ chí mạng khổng lồ, một viên đạn có thể xuyên thủng nhiều kẻ địch.",
+        "game": "Soul Knight",
+        "rarity": "Epic",
+        "attributes": "Súng tỉa, Xuyên thấu, Chí mạng",
+        "requiredLevel": 18
+    },
+    {
+        "name": "Gatling Gun",
+        "price": 350000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/6/6f/Gatling_Gun.png",
+        "description": "Sát thương: 2, Năng lượng: 2. Xả đạn như mưa với tốc độ cực nhanh. Sát thương DPS khổng lồ nhưng sẽ rút cạn thanh năng lượng của bạn trong chớp mắt.",
+        "game": "Soul Knight",
+        "rarity": "Epic",
+        "attributes": "Súng máy, Tốc độ bắn",
+        "requiredLevel": 15
+    },
+    {
+        "name": "Caliburn",
+        "price": 480000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/1/14/Caliburn.png",
+        "description": "Thanh gươm truyền thuyết. Tích tụ năng lượng (20 Energy) để phóng ra một luồng sóng năng lượng hình bán nguyệt khổng lồ (Sát thương 30), càn quét toàn bộ màn hình.",
+        "game": "Soul Knight",
+        "rarity": "Legendary",
+        "attributes": "Cận chiến, Sóng năng lượng",
+        "requiredLevel": 22
+    },
+    {
+        "name": "Missile Battery",
+        "price": 400000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/2/22/Missile_Battery.png",
+        "description": "Sát thương: 2, Năng lượng: 2. Phóng ra hàng loạt tên lửa dẫn đường cỡ nhỏ tự động đuổi theo kẻ địch. Cực kỳ hiệu quả khi đánh Boss.",
+        "game": "Soul Knight",
+        "rarity": "Epic",
+        "attributes": "Phóng lựu, Tên lửa, Tự nhắm",
+        "requiredLevel": 16
+    },
+    {
+        "name": "Meat",
+        "price": 120000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/4/4c/Meat.png",
+        "description": "Sát thương: 5, Năng lượng: 0. Một miếng thịt bí ẩn có tốc độ vung cực kỳ khủng khiếp. Dù sát thương thấp nhưng là công cụ hoàn hảo để gạt bay mọi loại đạn bay tới.",
+        "game": "Soul Knight",
+        "rarity": "Common",
+        "attributes": "Cận chiến, Phòng thủ, Tốc đánh",
+        "requiredLevel": 5
+    },
+    {
+        "name": "Dead Star Laser Gun",
+        "price": 460000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/b/be/Dead_Star_Laser_Gun.png",
+        "description": "Sát thương: 6, Năng lượng: 2. Bắn ra tia laser có khả năng đổi màu liên tục, áp dụng ngẫu nhiên các hiệu ứng nguyên tố (Đóng băng, Cháy, Độc) lên kẻ địch.",
+        "game": "Soul Knight",
+        "rarity": "Legendary",
+        "attributes": "Laser, Đa nguyên tố",
+        "requiredLevel": 24
+    },
+    {
+        "name": "Star Bow",
+        "price": 520000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/0/0f/Star_Bow.png",
+        "description": "Năng lượng: 5. Bắn ra các mũi tên ánh sao. Khi tích tụ đủ, nó gọi xuống cơn mưa sao băng gây sát thương diện rộng và tạo ra vụ nổ hủy diệt.",
+        "game": "Soul Knight",
+        "rarity": "Legendary",
+        "attributes": "Cung, Sao băng, Diện rộng",
+        "requiredLevel": 28
+    },
+    {
+        "name": "Illusion",
+        "price": 380000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/6/69/Illusion.png",
+        "description": "Sát thương: 6, Năng lượng: 2. Bắn ra một tia laser liên tục. Càng giữ cò lâu, tia laser càng to ra và sát thương càng tăng mạnh.",
+        "game": "Soul Knight",
+        "rarity": "Epic",
+        "attributes": "Laser, Sát thương tăng dần",
+        "requiredLevel": 18
+    },
+    {
+        "name": "Staff of Illusion",
+        "price": 310000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/e/ef/Staff_of_Illusion.png",
+        "description": "Năng lượng: 10. Triệu hồi một ảo ảnh (Bóng ma) của chính bạn. Ảo ảnh này sẽ sử dụng vũ khí phụ của bạn để tự động tấn công kẻ địch.",
+        "game": "Soul Knight",
+        "rarity": "Epic",
+        "attributes": "Pháp trượng, Triệu hồi",
+        "requiredLevel": 15
+    },
+    {
+        "name": "Magic Bow",
+        "price": 330000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/7/77/Magic_Bow.png",
+        "description": "Năng lượng: 6. Tích tụ để bắn ra nhiều mũi tên ma thuật tự động đuổi theo và cắm vào kẻ địch, sát thương tăng cao nếu tất cả mũi tên trúng một mục tiêu.",
+        "game": "Soul Knight",
+        "rarity": "Epic",
+        "attributes": "Cung, Tự nhắm, Đa mục tiêu",
+        "requiredLevel": 16
+    },
+    {
+        "name": "Shield",
+        "price": 400000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/1/1b/Shield.png",
+        "description": "Năng lượng: 2. Kích hoạt tạo ra một vòng khiên năng lượng xung quanh bản thân, chặn hoàn toàn mọi loại đạn (projectile) của kẻ địch trong một thời gian ngắn.",
+        "game": "Soul Knight",
+        "rarity": "Legendary",
+        "attributes": "Phòng thủ, Khiên chắn",
+        "requiredLevel": 20
+    },
+    {
+        "name": "Emperor's New Gun",
+        "price": 440000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/4/44/Emperor%27s_New_Gun.png",
+        "description": "Súng tàng hình độc nhất vô nhị. Bắn ra một chùm đạn shotgun lan rộng với sát thương rất lớn, nhưng nếu ném xuống đất quá lâu nó sẽ tự động biến mất.",
+        "game": "Soul Knight",
+        "rarity": "Legendary",
+        "attributes": "Shotgun, Tàng hình",
+        "requiredLevel": 24
+    },
+    {
+        "name": "Crystal Crab's Katana",
+        "price": 360000,
+        "imageUrl": "https://static.wikia.nocookie.net/soul-knight/images/d/df/Crystal_Crab%27s_Katana.png",
+        "description": "Vũ khí của Boss Cua Pha Lê. Đánh cận chiến cực nhanh. Khi chém chí mạng sẽ triệu hồi các dải gai pha lê từ dưới đất đâm lên gây sát thương diện rộng.",
+        "game": "Soul Knight",
+        "rarity": "Legendary",
+        "attributes": "Cận chiến, Boss, Gai pha lê",
+        "requiredLevel": 18
+    }
+]

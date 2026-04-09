@@ -1,73 +1,173 @@
 <!DOCTYPE html>
-<html lang="vi" data-bs-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopiMini - Chợ Vật Phẩm ẢO</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-</head>
-<body>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopiMini — Cửa hàng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@400;600;700&family=Nunito:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="shop-body">
+    <div class="shop-bg" aria-hidden="true"></div>
+    <div class="shop-bg-vignette" aria-hidden="true"></div>
 
-<nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-        <a class="navbar-brand fs-4" href="/">🎮 ShopiMini</a>
-        <div class="d-flex position-relative">
-            <a href="/cart.html" class="btn btn-primary-custom position-relative me-2">
-                🛒 Giỏ Hàng
-                <span id="cart-badge" class="cart-badge">0</span>
-            </a>
-            <a href="/admin/login.html" class="btn btn-outline-secondary">Admin</a>
+    <div class="shop-app">
+      <div class="shop-outer-frame">
+      <header class="shop-topbar">
+        <div class="shop-topbar-left">
+          <div class="shop-avatar" title="Người chơi">🧙</div>
+          <span class="shop-notify-badge" id="cart-badge-top">0</span>
         </div>
-    </div>
-</nav>
+        <div class="shop-logo-wrap">
+          <h1 class="shop-logo">SHOP</h1>
+          <p class="shop-logo-sub">ShopiMini · Cửa hàng vật phẩm</p>
+        </div>
+        <div class="shop-topbar-right">
+          <div class="shop-currency" title="Xu (trang trí)">
+            <span class="shop-currency-icon">💎</span>
+            <span class="shop-currency-val">2.285</span>
+            <button type="button" class="shop-currency-plus" disabled aria-hidden="true">+</button>
+          </div>
+          <div class="shop-currency" title="Ngọc (trang trí)">
+            <span class="shop-currency-icon">✨</span>
+            <span class="shop-currency-val">56</span>
+            <button type="button" class="shop-currency-plus" disabled aria-hidden="true">+</button>
+          </div>
+          <a href="/cart.html" class="shop-icon-btn shop-cart-btn" title="Giỏ hàng">
+            🛒
+            <span id="cart-badge" class="shop-cart-nudge">0</span>
+          </a>
+          <a href="/admin/login.html" class="shop-icon-btn shop-admin-btn" title="Admin">⚙</a>
+        </div>
+      </header>
 
-<div class="container">
-    <div class="hero-section">
-        <h1 class="fw-bold" style="color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan);">ShopiMini</h1>
-        <p class="lead">Siêu thị vật phẩm ảo đa vũ trụ. Sức mạnh nằm trong tay bạn!</p>
-    </div>
+      <div class="shop-panel">
+        <div class="shop-panel-shine" aria-hidden="true"></div>
+        <aside class="shop-sidebar" aria-label="Danh mục game">
+          <div class="shop-sidebar-title">Danh mục</div>
+          <nav class="shop-nav">
+            <button type="button" class="shop-nav-item active" data-game="">
+              <span class="shop-nav-ico">🌐</span>
+              <span class="shop-nav-txt">Tất cả</span>
+            </button>
+            <button type="button" class="shop-nav-item" data-game="lienquan">
+              <span class="shop-nav-ico">⚔️</span>
+              <span class="shop-nav-txt">Liên Quân</span>
+              <span class="shop-nav-info" data-game="lienquan" title="Giới thiệu">i</span>
+            </button>
+            <button type="button" class="shop-nav-item" data-game="lienminh">
+              <span class="shop-nav-ico">🏆</span>
+              <span class="shop-nav-txt">Liên Minh</span>
+              <span class="shop-nav-info" data-game="lienminh" title="Giới thiệu">i</span>
+            </button>
+            <button type="button" class="shop-nav-item" data-game="gunny">
+              <span class="shop-nav-ico">🎯</span>
+              <span class="shop-nav-txt">Gunny 360</span>
+              <span class="shop-nav-info" data-game="gunny" title="Giới thiệu">i</span>
+            </button>
+            <button type="button" class="shop-nav-item" data-game="soulknight">
+              <span class="shop-nav-ico">🔫</span>
+              <span class="shop-nav-txt">Soul Knight</span>
+              <span class="shop-nav-info" data-game="soulknight" title="Giới thiệu">i</span>
+            </button>
+            <button type="button" class="shop-nav-item" data-game="pubg">
+              <span class="shop-nav-ico">🪖</span>
+              <span class="shop-nav-txt">PUBG</span>
+              <span class="shop-nav-info" data-game="pubg" title="Giới thiệu">i</span>
+            </button>
+            <button type="button" class="shop-nav-item" data-game="dragonmania">
+              <span class="shop-nav-ico">🐉</span>
+              <span class="shop-nav-txt">Dragon Mania</span>
+              <span class="shop-nav-info" data-game="dragonmania" title="Giới thiệu">i</span>
+            </button>
+          </nav>
+        </aside>
 
-    <!-- Bộ lọc Game -->
-    <div class="text-center mb-5">
-        <button class="btn filter-btn active" data-game="">Tất cả</button>
-        <button class="btn filter-btn" data-game="lienquan">Liên Quân</button>
-        <button class="btn filter-btn" data-game="lienminh">Liên Minh</button>
-        <button class="btn filter-btn" data-game="gunny">Gunny 360</button>
-        <button class="btn filter-btn" data-game="soulknight">Soul Knight</button>
-        <button class="btn filter-btn" data-game="pubg">PUBG</button>
-        <button class="btn filter-btn" data-game="dragonmania">Dragon Mania</button>
-    </div>
+        <main class="shop-main">
+          <div class="shop-toolbar">
+            <div class="shop-search-wrap">
+              <span class="shop-search-icon" aria-hidden="true">🔍</span>
+              <input
+                type="search"
+                id="shop-search"
+                class="shop-search"
+                placeholder="Tìm vật phẩm..."
+                autocomplete="off"
+              />
+            </div>
+            <select id="filter-rarity" class="shop-select" aria-label="Độ hiếm">
+              <option value="All">Mọi độ hiếm</option>
+              <option value="Common">Thường</option>
+              <option value="Rare">Hiếm</option>
+              <option value="Epic">Sử thi</option>
+              <option value="Legendary">Huyền thoại</option>
+            </select>
+            <select id="filter-attribute" class="shop-select" aria-label="Loại">
+              <option value="All">Mọi loại</option>
+              <option value="Vũ khí">Vũ khí (LQ)</option>
+              <option value="Phép thuật">Phép thuật</option>
+              <option value="Phòng thủ">Phòng thủ</option>
+              <option value="Trợ thủ">Trợ thủ</option>
+              <option value="Weapon">Weapon (EN)</option>
+              <option value="Skin">Trang phục</option>
+              <option value="Dragon">Rồng</option>
+              <option value="Material">Nguyên liệu</option>
+              <option value="Magic">Magic</option>
+            </select>
+          </div>
 
-    <!-- Product Grid -->
-    <div class="row" id="product-list">
-        <!-- Products will be loaded here via JS -->
-    </div>
-</div>
-
-<!-- Modal Info Game -->
-<div class="modal fade" id="gameInfoModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title fw-bold" id="gameModalTitle" style="color: var(--neon-pink);">Tên Game</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="shop-grid-wrap">
+            <button type="button" class="shop-scroll-hint shop-scroll-left" aria-label="Cuộn trái" id="grid-scroll-left">‹</button>
+            <div class="shop-grid" id="product-list"></div>
+            <button type="button" class="shop-scroll-hint shop-scroll-right" aria-label="Cuộn phải" id="grid-scroll-right">›</button>
+          </div>
+        </main>
       </div>
-      <div class="modal-body">
-        <p id="gameModalDesc" class="mb-4">Mô tả game...</p>
-        <div class="ratio ratio-16x9">
-            <iframe id="gameModalVideo" src="" title="YouTube video" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="modal fade" id="itemDetailModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered">
+        <div class="modal-content shop-modal shop-item-modal">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="itemModalTitle">Trang bị</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+          </div>
+          <div class="modal-body" id="itemModalBody"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn shop-btn-secondary" data-bs-dismiss="modal">Đóng</button>
+          </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary-custom" data-bs-dismiss="modal">Khám phá vật phẩm</button>
+    </div>
+
+    <div class="modal fade" id="gameInfoModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content shop-modal">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="gameModalTitle">Tên game</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+          </div>
+          <div class="modal-body">
+            <p id="gameModalDesc" class="mb-4">Mô tả...</p>
+            <div class="ratio ratio-16x9">
+              <iframe id="gameModalVideo" src="" title="Video" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn shop-btn-primary" data-bs-dismiss="modal">Đã hiểu</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/main.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
 </html>

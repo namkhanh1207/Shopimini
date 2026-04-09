@@ -1,24 +1,296 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Paytone+One&family=Nunito:wght@700;800;900&display=swap');
 
+/*
+ * ── Custom Font: Lilita One Việt hóa (local .otf file) ──
+ * Đặt file .otf vào:  frontend/public/fonts/LilitaOne-VN.otf
+ * Hoặc:               frontend/src/assets/fonts/LilitaOne-VN.otf
+ *
+ * Nếu dùng public/ → đường dẫn: url('/fonts/LilitaOne-VN.otf')
+ * Nếu dùng src/assets/ → import trong JS: import font from './assets/fonts/LilitaOne-VN.otf'
+ * (nhưng @font-face trong CSS thì dùng public/ sẽ đơn giản hơn)
+ */
+@font-face {
+  font-family: 'Lilita One';
+  src: url('/fonts/LilitaOne-VN.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* Hiển thị fallback font ngay, swap khi font load xong */
+}
+
+/* Google Fonts chỉ là fallback nếu file local chưa có */
+
+
+/* ============================================================
+   GLOBAL BASE — RPG Fantasy Background
+   ============================================================ */
 @layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
   body {
-    @apply bg-gradient-to-br from-[#0a0f1a] to-[#1a1f2e] text-white min-h-screen overflow-x-hidden;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Nunito', sans-serif;
+    color: #e8dcc8;
+    /* Deep RPG sky-to-ground gradient */
+    background:
+      linear-gradient(180deg,
+        #0d1b3e 0%,
+        #1a2d5a 18%,
+        #2a4580 30%,
+        #1e3a6e 45%,
+        #0e2a1a 62%,
+        #0a1f0f 80%,
+        #071508 100%
+      );
+    background-attachment: fixed;
+    position: relative;
+  }
+
+  /* CSS Particle Stars layer */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(1.5px 1.5px at 10% 8%, rgba(255,255,255,0.9) 0%, transparent 100%),
+      radial-gradient(1px 1px at 22% 15%, rgba(255,220,100,0.8) 0%, transparent 100%),
+      radial-gradient(2px 2px at 35% 6%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 48% 19%, rgba(200,230,255,0.8) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 60% 10%, rgba(255,255,255,0.9) 0%, transparent 100%),
+      radial-gradient(1px 1px at 73% 5%, rgba(255,220,100,0.6) 0%, transparent 100%),
+      radial-gradient(2px 2px at 85% 14%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 95% 9%, rgba(200,230,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 25%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 18% 30%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 42% 28%, rgba(255,220,100,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 68% 22%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(2px 2px at 88% 26%, rgba(200,230,255,0.5) 0%, transparent 100%);
+    animation: twinkle 4s ease-in-out infinite alternate;
+  }
+
+  /* Forest silhouette + mist overlay */
+  body::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 110%, rgba(10,100,30,0.7) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 20% 120%, rgba(5,60,15,0.8) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 40% at 80% 120%, rgba(5,60,15,0.8) 0%, transparent 65%);
+  }
+
+  /* Ensure all content sits above background layers */
+  #root { position: relative; z-index: 1; }
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+@keyframes twinkle {
+  0%   { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 1;   transform: scale(1.08); }
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  33%  { transform: translateY(-7px) rotate(1deg); }
+  66%  { transform: translateY(-4px) rotate(-1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes ripple {
+  0%   { transform: scale(0); opacity: 0.8; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(255,215,0,0.4), 0 0 20px rgba(255,150,0,0.2); }
+  50%       { box-shadow: 0 0 18px rgba(255,215,0,0.8), 0 0 40px rgba(255,150,0,0.4); }
+}
+
+@keyframes card-hover-glow {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(255,215,0,0.3); }
+  50%       { box-shadow: 0 0 0 4px rgba(255,215,0,0.7), 0 0 30px rgba(255,200,0,0.3); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: scale(0.92) translateY(30px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ============================================================
+   DML COMPONENT TOKENS
+   ============================================================ */
+@layer components {
+
+  /* ── Float animation utility ── */
+  .animate-float { animation: float 3s ease-in-out infinite; }
+  .animate-fade-in-up { animation: fade-in-up 0.4s ease-out both; }
+  .animate-slide-in { animation: slide-in 0.35s cubic-bezier(0.34,1.56,0.64,1) both; }
+  .animate-glow-pulse { animation: glow-pulse 2s ease-in-out infinite; }
+
+  /* ── Glass panel (semi-transparent dark surface) ── */
+  .glass-panel {
+    background: rgba(10, 20, 40, 0.65);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255,215,0,0.25);
+    border-radius: 20px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.1),
+      inset 0 -1px 0 rgba(0,0,0,0.3),
+      0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  /* ── Frame outer border + block shadow ── */
+  .card-dml {
+    position: relative;
+    border-radius: 20px;
+    overflow: visible;
+    flex-shrink: 0;
+    /* Chunky 3D drop shadow */
+    filter: drop-shadow(0 12px 0 rgba(0,0,0,0.45)) drop-shadow(0 0 20px rgba(0,0,0,0.5));
+    transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), filter 0.2s ease;
+  }
+  .card-dml:hover {
+    transform: translateY(-8px) scale(1.02);
+    filter: drop-shadow(0 18px 0 rgba(0,0,0,0.4)) drop-shadow(0 0 30px rgba(255,200,0,0.3));
+  }
+
+  /* ── Rarity border colors ── */
+  .border-legendary { border-color: #FFD700 !important; }
+  .border-epic       { border-color: #BB00FF !important; }
+  .border-rare       { border-color: #0077FF !important; }
+  .border-common     { border-color: #91AAB4 !important; }
+
+  /* ── DML 3D Button Base ── */
+  .btn-dml {
+    position: relative;
+    overflow: hidden;
+    font-family: 'Lilita One', cursive;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #fff;
+    border-radius: 14px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s, box-shadow 0.1s;
+    user-select: none;
+    text-shadow: 0 2px 0 rgba(0,0,0,0.5);
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.3);
+  }
+  .btn-dml:active { transform: translateY(4px); }
+
+  /* Green buy button */
+  .btn-dml-green {
+    background: linear-gradient(180deg, #6AE030 0%, #3DBF00 45%, #279500 100%);
+    border-color: #106300;
+    box-shadow:
+      inset 0 3px 0 rgba(255,255,255,0.4),
+      0 6px 0 #074200,
+      0 10px 16px rgba(0,0,0,0.35);
+  }
+  .btn-dml-green:hover { filter: brightness(1.08); transform: translateY(-2px); }
+  .btn-dml-green:active {
+    transform: translateY(6px);
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 0 0 #074200;
+  }
+
+  /* Gray locked button */
+  .btn-dml-gray {
+    background: linear-gradient(180deg, #8E9BA6 0%, #6A757F 50%, #536068 100%);
+    border-color: #38474F;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5), 0 3px 0 #222C30;
+    cursor: not-allowed;
+    color: #C5D0D6;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+  }
+
+  /* Gold shimmer button */
+  .btn-dml-gold {
+    background: linear-gradient(90deg,
+      #FFC107 0%, #FF8C00 30%, #FFD700 55%, #FFA000 80%, #FF8C00 100%
+    );
+    background-size: 200% auto;
+    border-color: #B36B00;
+    box-shadow: inset 0 3px 0 rgba(255,255,255,0.5), 0 5px 0 #7a4400, 0 8px 15px rgba(0,0,0,0.3);
+    animation: shimmer 2s linear infinite;
+  }
+  .btn-dml-gold:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+  /* ── Info button (orange circle) ── */
+  .btn-info {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #FFB830 0%, #FF7800 50%, #CC4400 100%);
+    border: 2px solid rgba(255,255,255,0.6);
+    color: #fff;
+    font-family: 'Lilita One', cursive;
+    font-size: 16px;
+    font-style: italic;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow:
+      0 -2px 0 rgba(255,255,255,0.4) inset,
+      0 4px 0 #7a3200,
+      0 6px 10px rgba(0,0,0,0.4);
+    transition: transform 0.1s, filter 0.1s;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+    position: absolute;
+    z-index: 10;
+  }
+  .btn-info:hover { filter: brightness(1.2); transform: scale(1.1); animation: glow-pulse 1s infinite; }
+  .btn-info:active { transform: translateY(4px); box-shadow: 0 1px 0 #7a3200 inset; }
+
+  /* ── Scrollbar ── */
+  .dml-scroll::-webkit-scrollbar { height: 6px; }
+  .dml-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); border-radius: 3px; }
+  .dml-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #c9a227, #FFD700, #c9a227);
+    border-radius: 3px;
   }
 }
 
+/* ============================================================
+   UTILITIES
+   ============================================================ */
 @layer utilities {
-  .neon-glow {
-    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+  .text-shadow-dml {
+    text-shadow: 0 2px 0 rgba(0,0,0,0.6), 0 0 10px rgba(0,0,0,0.4);
   }
-  
-  .glass-panel {
-    @apply bg-white/20 backdrop-blur-md border border-white/20 shadow-lg;
+  .text-stroke-black {
+    -webkit-text-stroke: 1.5px black;
   }
-  
-  .dml-card {
-    background: linear-gradient(145deg, #1e2638, #181d2b);
-    box-shadow: 5px 5px 15px #111520, -5px -5px 15px #252d40;
-    border: 2px solid rgba(255,255,255,0.05);
+  .font-cartoon { font-family: 'Lilita One', cursive; }
+  .font-paytone { font-family: 'Paytone One', sans-serif; }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
